@@ -12,18 +12,18 @@
     <div class="results">
       <table v-if="paginatedRecords.length > 0" class="results-table">
         <thead>
-          <tr>
-            <th v-for="header in headers" :key="header" :class="{ 'date-col': header === 'Date' }">
-              {{ header }}
-            </th>
-          </tr>
+        <tr>
+          <th v-for="header in headers" :key="header" :class="{ 'date-col': header === 'Date' }">
+            {{ header }}
+          </th>
+        </tr>
         </thead>
         <tbody>
-          <tr v-for="record in paginatedRecords" :key="record.id">
-            <td v-for="(item, index) in record.slice(1)" :key="index" :class="{ 'date-col': headers[index] === 'Date' }">
-              {{ item }}
-            </td>
-          </tr>
+        <tr v-for="record in records" :key="record.id">
+          <td v-for="(item, index) in record.slice(1)" :key="index" :class="{ 'date-col': headers[index] === 'Date' }">
+            {{ item }}
+          </td>
+        </tr>
         </tbody>
       </table>
       <div v-if="numPages > 1" class="pagination">
@@ -45,7 +45,7 @@ export default {
       records: [],
       headers: ['Key', '模型(Model)', '消费', '时间', '问题(prompt tokens)', '回答(completion tokens)'],
       currentPage: 0,
-      itemsPerPage: 20,
+      itemsPerPage: 10,
     }
   },
   computed: {
@@ -74,22 +74,22 @@ export default {
       }
     },
     async query() {
-  this.getBalance();
-  this.records = []; // 清空记录
-  const apiUrl = `https://zcl3.icu/get_transactions?key=${this.key}`;
-  try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    if (data && data.length > 0) {
-      this.records = data;
-    } else {
-      alert('未找到消费记录');
-    }
-  } catch (error) {
-    alert('查询过程中出错，请稍后再试');
-  }
-},
-,
+      this.getBalance();
+      this.records = []; // 清空记录
+      const apiUrl = `https://zcl3.icu/get_transactions?key=${this.key}`;
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        if (data && data.length > 0) {
+          this.records = data;
+        } else {
+          alert('未找到消费记录');
+        }
+      } catch (error) {
+        alert('查询过程中出错，请稍后再试');
+      }
+    },
+
     purchase() {
       window.location.href = 'purchase.html';
     },
@@ -118,13 +118,10 @@ export default {
 
 .controls {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.controls input,
-.controls button {
-  margin-right: 10px;
+  margin-bottom: 20px;
 }
 
 .key-input {
@@ -158,6 +155,7 @@ export default {
 .results p {
   text-align: center;
 }
+
 .pagination {
   display: flex;
   justify-content: center;
