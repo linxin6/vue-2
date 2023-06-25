@@ -74,20 +74,22 @@ export default {
       }
     },
     async query() {
-      this.getBalance();
-      const apiUrl = `https://zcl3.icu/get_transactions?key=${this.key}`;
-      try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        if (data && data.length > 0) {
-          this.records = data;
-        } else {
-          alert('未找到消费记录');
-        }
-      } catch (error) {
-        alert('查询过程中出错，请稍后再试');
-      }
-    },
+  this.getBalance();
+  this.records = []; // 清空记录
+  const apiUrl = `https://zcl3.icu/get_transactions?key=${this.key}`;
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    if (data && data.length > 0) {
+      this.records = data;
+    } else {
+      alert('未找到消费记录');
+    }
+  } catch (error) {
+    alert('查询过程中出错，请稍后再试');
+  }
+},
+,
     purchase() {
       window.location.href = 'purchase.html';
     },
