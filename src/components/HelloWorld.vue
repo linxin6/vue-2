@@ -118,14 +118,16 @@ export default {
 
 .controls {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+}
+.controls input,
+.controls button {
+  margin-right: 10px;
 }
 
 .key-input {
-  width: 150%;
+  width: 200%;
 }
 
 .balance {
