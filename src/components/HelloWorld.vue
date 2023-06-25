@@ -117,6 +117,7 @@ export default {
 .controls {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .controls input,
