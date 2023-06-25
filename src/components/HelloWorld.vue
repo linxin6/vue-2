@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="record in records" :key="record.id">
+          <tr v-for="record in paginatedRecords" :key="record.id">
             <td v-for="(item, index) in record.slice(1)" :key="index" :class="{ 'date-col': headers[index] === 'Date' }">
               {{ item }}
             </td>
