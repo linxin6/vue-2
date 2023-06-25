@@ -45,7 +45,7 @@ export default {
       records: [],
       headers: ['Key', '模型(Model)', '消费', '时间', '问题(prompt tokens)', '回答(completion tokens)'],
       currentPage: 0,
-      itemsPerPage: 10,
+      itemsPerPage: 20,
     }
   },
   computed: {
