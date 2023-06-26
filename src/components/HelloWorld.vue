@@ -127,7 +127,7 @@ export default {
 }
 
 .key-input {
-  width: 200%;
+  width: 200px;
 }
 
 .balance {
