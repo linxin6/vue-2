@@ -6,7 +6,7 @@
     </div>
     <div class="controls">
       <input type="text" v-model="key" placeholder="请输入 key" class="key-input">
-      <button @click="query">查询</button>
+      <button @click="query" style="width: 20px">查询</button>
       <button @click="purchase">购买 key</button>
     </div>
     <div class="results">
