@@ -6,8 +6,8 @@
     </div>
     <div class="controls">
       <input type="text" v-model="key" placeholder="请输入 key" class="key-input">
-      <button @click="query" style="width: 100px">查询</button>
-      <button @click="purchase" style="width: 120px">购买 key</button>
+      <button @click="query" style="width: 80px">查询</button>
+      <button @click="purchase" style="width: 80px">购买 key</button>
     </div>
     <div class="results">
       <table v-if="paginatedRecords.length > 0" class="results-table">
@@ -127,7 +127,7 @@ export default {
 }
 
 .key-input {
-  width: 200px;
+  width: 300px;
 }
 
 .balance {
