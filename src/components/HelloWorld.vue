@@ -91,7 +91,7 @@ export default {
     },
 
     purchase() {
-      window.location.href = 'purchase.html';
+      window.location.href = 'https://chatwithai.icu';
     },
     nextPage() {
       if (this.currentPage < this.numPages - 1) {
