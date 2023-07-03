@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     async getBalance() {
-      const apiUrl = `https://zcl3.icu/get_key_balance?key=${this.key}`;
+      const apiUrl = `https://chatwithaiapi.icu/get_key_balance?key=${this.key}`;
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
@@ -76,7 +76,7 @@ export default {
     async query() {
       this.getBalance();
       this.records = []; // 清空记录
-      const apiUrl = `https://zcl3.icu/get_transactions?key=${this.key}`;
+      const apiUrl = `https://chatwithaiapi.icu/get_transactions?key=${this.key}`;
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
